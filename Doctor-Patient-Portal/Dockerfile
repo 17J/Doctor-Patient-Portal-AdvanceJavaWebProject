@@ -1,9 +1,12 @@
-FROM openjdk:17-alpine AS builder
-RUN apk add --no-cache ca-certificates && update-ca-certificates
+# Builder stage
+FROM maven:3.8.5-openjdk-17-slim AS builder
 WORKDIR /app
-RUN apk add --no-cache maven
-COPY . .
-RUN mvn clean package -DskipTests=true
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY src ./src
+RUN mvn package -DskipTests=true
+
+# Tomcat stage
 FROM tomcat:9-alpine
 COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/
 EXPOSE 8080

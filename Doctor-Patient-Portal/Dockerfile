@@ -4,7 +4,7 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn package -DskipTests=true
+RUN mvn package
 
 # Tomcat stage
 FROM tomcat:9-alpine

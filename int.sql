@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS hms;
 
-CREATE USER 'root'@'172.31.28.241' IDENTIFIED BY 'root@@123';
-GRANT ALL PRIVILEGES ON hms.* TO 'root'@'172.31.28.241';
+GRANT ALL PRIVILEGES ON hms.* TO 'root'@'localhost';
 
 USE hms;
 

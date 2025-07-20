@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 17rj/doctor-patient-portal:latest
+          image: 17rj/doctor_patient_portals:latest
           ports:
             - containerPort: 8080
 

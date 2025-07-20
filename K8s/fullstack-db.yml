@@ -134,4 +134,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: my-ebs-sc
+  # storageClassName: my-ebs-sc
